@@ -58,6 +58,19 @@ $ pnpm run test:e2e
 $ pnpm run test:cov
 ```
 
+## Setup Database Local
+
+```bash
+# Install Package
+Recommended = XAMPP  https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/8.1.25/xampp-windows-x64-8.1.25-0-VS16-installer.exe/download
+
+# Create Database
+Create Database yang sesuai pada environtment, pada hal ini lihat saja folder .env yang sengaja di push
+
+# Jalankan server kembali dengan
+$ pnpm run start:dev
+```
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
