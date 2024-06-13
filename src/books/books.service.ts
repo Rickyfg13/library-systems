@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { IsNull, LessThan, Not, Repository } from 'typeorm';
 import { Book } from './book.entity';
 import { User } from '../users/user.entity';
+import { CreateBookDto } from './dto/create-books.dto';
 
 @Injectable()
 export class BooksService {
@@ -10,6 +11,11 @@ export class BooksService {
     @InjectRepository(Book)
     private booksRepository: Repository<Book>,
   ) {}
+
+  async createBook(createBookDto: CreateBookDto): Promise<Book> {
+    const book = this.booksRepository.create(createBookDto);
+    return this.booksRepository.save(book);
+  }
 
   async findAll(): Promise<Book[]> {
     return this.booksRepository.find({ relations: ['borrowedBy'] });
@@ -50,12 +56,16 @@ export class BooksService {
   async findOverdueBooks(): Promise<Book[]> {
     const overdueBooks = await this.booksRepository.find({
       where: {
-        borrowedAt: LessThan(new Date(Date.now() - 14 * 24 * 60 * 60 * 1000)), // Books borrowed more than 14 days ago
+        borrowedAt: LessThan(new Date(Date.now() - 14 * 24 * 60 * 60 * 1000)), // Books borrowed more than 14 days aja
         borrowedBy: Not(IsNull()),
       },
       relations: ['borrowedBy'],
     });
 
     return overdueBooks;
+  }
+
+  async deleteBook(id: number): Promise<void> {
+    await this.booksRepository.delete(id);
   }
 }

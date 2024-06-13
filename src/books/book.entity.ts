@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { User } from '../users/user.entity';
+import { User } from 'src/users/user.entity';
 
 @Entity()
 export class Book {
@@ -12,9 +12,9 @@ export class Book {
   @Column()
   author: string;
 
-  @ManyToOne(() => User, (user) => user.id)
-  borrowedBy: User;
+  @ManyToOne(() => User, (user) => user.borrowedBooks, { nullable: true })
+  borrowedBy?: User;
 
-  @Column({ nullable: true })
-  borrowedAt: Date;
+  @Column({ type: 'timestamp', nullable: true })
+  borrowedAt?: Date;
 }
