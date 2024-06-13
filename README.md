@@ -26,9 +26,9 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Dokumentasi untuk Meng-clone dan Menjalankan Proyek
+# Dokumentasi untuk Meng-clone dan Menjalankan Proyek
 
-# 1. Clone Repository
+### 1. Clone Repository
 
 Langkah pertama adalah meng-clone repository dari GitHub ke lokal Anda.
 
@@ -36,7 +36,7 @@ Langkah pertama adalah meng-clone repository dari GitHub ke lokal Anda.
 git clone https://github.com/Rickyfg13/library-systems.git
 ```
 
-# 2. Masuk ke Direktori Proyek
+### 2. Masuk ke Direktori Proyek
 
 Pindah ke direktori proyek yang baru saja di-clone.
 
@@ -44,7 +44,7 @@ Pindah ke direktori proyek yang baru saja di-clone.
 cd library-systems
 ```
 
-# 3. Instalasi Dependencies
+### 3. Instalasi Dependencies
 
 Instal semua dependencies yang diperlukan menggunakan pnpm.
 
@@ -86,7 +86,9 @@ $ pnpm run start:dev
   - [Register User](#register-user)
   - [Login User](#login-user)
 - [Buku](#buku)
+  - [Create Buku](#create-buku)
   - [Pinjam Buku](#pinjam-buku)
+  - [Kembalikan Buku](#kembalikan-buku)
 
 ## Autentikasi
 
